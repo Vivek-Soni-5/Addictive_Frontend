@@ -1,0 +1,99 @@
+/* src/components/Dashboard/Dashboard.css */
+.dashboard-container {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.dashboard-container p {
+    font-size: 16px;
+    color: #333;
+}
+
+.dashboard-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.dashboard-container ul li {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.dashboard-container ul li p {
+    margin: 5px 0;
+}
+
+.dashboard-container ul li a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.dashboard-container ul li a:hover {
+    text-decoration: underline;
+}
+
+.dashboard-container h3 {
+    margin-top: 30px;
+    color: #333;
+}
+
+.dashboard-container .form-group {
+    margin-bottom: 15px;
+}
+
+.dashboard-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 14px;
+}
+
+.dashboard-container input {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.dashboard-container button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.dashboard-container button:hover {
+    background-color: #0056b3;
+}
+
+.dashboard-container p.error-message {
+    color: #dc3545;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.dashboard-container p.success-message {
+    color: #28a745;
+    font-size: 16px;
+    margin: 10px 0;
+}
