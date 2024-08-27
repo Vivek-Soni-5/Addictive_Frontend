@@ -22,7 +22,7 @@ const Register = () => {
         e.preventDefault();
         try {
             const res = await axios.post(
-                "http://localhost:5000/api/auth/register",
+                `${process.env.BACKEND_URL}/api/auth/register`,
                 formData
             );
             console.log(res.data);

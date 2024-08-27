@@ -8,7 +8,7 @@ const AdminPage = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/auth/admin/users');
+                const res = await axios.get(`${process.env.BACKEND_URL}/api/auth/admin/users`);
                 setUsers(res.data);
             } catch (err) {
                 console.error('Error fetching users', err);

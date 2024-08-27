@@ -20,7 +20,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/login', formData);
+            const res = await axios.post(`${process.env.BACKEND_URL}/api/auth/login`, formData);
             navigate('/dashboard'); // Redirect to the dashboard or home page after successful login
         } catch (err) {
             setError('Invalid credentials. Please try again.');
