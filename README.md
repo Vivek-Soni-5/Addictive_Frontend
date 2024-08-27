@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+# MERN Video Upload Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack application built using the MERN stack (MongoDB, Express, React, Node.js) that allows users to register, log in, and upload videos. Admins can view all users and their uploaded videos.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **User Registration**: Sign up with a first name, last name, and email.
+- **User Login**: Authenticate using first name and password.
+- **Dashboard**: Users can view their profile, upload videos, and see a list of their uploaded videos.
+- **Admin Page**: Admins can view all users and their respective videos.
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js and npm
+- MongoDB
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the Repository**
 
-### `npm run build`
+    ```bash
+    git clone https://github.com/Vivek-Soni-5/Addictive_Frontend.git
+    cd your-repository
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Backend Setup**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    - Navigate to the `backend` directory.
+    - Install dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+        ```bash
+        cd backend
+        npm install
+        ```
 
-### `npm run eject`
+    - Create a `.env` file in the `backend` directory with the following content:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+        ```env
+        MONGO_URI=your-mongodb-connection-string
+        JWT_SECRET=your-jwt-secret
+        ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    - Start the backend server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+        ```bash
+        npm start
+        ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Frontend Setup**
 
-## Learn More
+    - Navigate to the `frontend` directory.
+    - Install dependencies:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+        ```bash
+        cd ../frontend
+        npm install
+        ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    - Start the frontend server:
 
-### Code Splitting
+        ```bash
+        npm start
+        ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
 
-### Analyzing the Bundle Size
+1. **Register**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    - Visit `http://localhost:3000/register` to create a new account.
 
-### Making a Progressive Web App
+2. **Login**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    - Visit `http://localhost:3000/login` to log in.
 
-### Advanced Configuration
+3. **Dashboard**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    - After logging in, you'll be redirected to `http://localhost:3000/dashboard` where you can view your profile and upload videos.
 
-### Deployment
+4. **Admin Page**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    - Access `http://localhost:3000/admin` to view all users and their videos (note: ensure you have admin privileges to access this page).
 
-### `npm run build` fails to minify
+## API Endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Authentication
+
+- **POST /api/auth/register**: Register a new user.
+- **POST /api/auth/login**: Log in a user.
+- **GET /api/auth/dashboard**: Fetch user details and videos (requires authentication).
+
+### Admin
+
+- **GET /api/admin/users**: Fetch all users and their videos (admin access required).
+
+
+
