@@ -13,7 +13,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const res = await axios.get(`${process.env.BACKEND_URL}/api/auth/dashboard`,{ withCredentials: true });
+                const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/auth/dashboard`,{ withCredentials: true });
                 setUser(res.data);
             } catch (err) {
                 console.error('Error fetching user data', err);
@@ -26,7 +26,7 @@ const Dashboard = () => {
     const handleUpload = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`${process.env.BACKEND_URL}/api/auth/upload`, {
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/upload`, {
                 title,
                 videoUrl
             });
