@@ -8,7 +8,7 @@ const AdminPage = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/auth/admin/users`);
+                const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/admin/users`);
                 if (Array.isArray(res.data)) {
                     setUsers(res.data);
                 } else {
@@ -31,7 +31,7 @@ const AdminPage = () => {
                     <div key={user._id} className="user-section">
                         <h3 className="user-name">{user.firstName} {user.lastName}</h3>
                         <div className="videos-container">
-                            {Array.isArray(user.videos) && user.videos.length > 0 ? (
+                            {user.videos.length > 0 ? (
                                 user.videos.map(video => (
                                     <div key={video._id} className="video-card">
                                         <h4 className="video-title">{video.title}</h4>
