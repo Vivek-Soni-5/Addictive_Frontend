@@ -1,22 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './Dashboard.css';
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./Dashboard.css";
 
 const Dashboard = () => {
     const [user, setUser] = useState(null);
-    const [title, setTitle] = useState('');
-    const [videoUrl, setVideoUrl] = useState('');
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
+    const [title, setTitle] = useState("");
+    const [videoUrl, setVideoUrl] = useState("");
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
 
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/auth/dashboard`);
+                const res = await axios.get(
+                    `${process.env.REACT_APP_BACKEND_URL}/api/auth/dashboard`
+                );
                 setUser(res.data);
             } catch (err) {
-                console.error('Error fetching user data', err);
+                console.error("Error fetching user data", err);
             }
         };
 
@@ -26,20 +27,23 @@ const Dashboard = () => {
     const handleUpload = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/upload`, {
-                title,
-                videoUrl
-            });
-            setSuccess('Video uploaded successfully');
-            setUser(prevState => ({
+            const res = await axios.post(
+                `${process.env.REACT_APP_BACKEND_URL}/api/auth/upload`,
+                {
+                    title,
+                    videoUrl,
+                }
+            );
+            setSuccess("Video uploaded successfully");
+            setUser((prevState) => ({
                 ...prevState,
-                videos: [...prevState.videos, res.data]
+                videos: [...prevState.videos, res.data],
             }));
-            setTitle('');
-            setVideoUrl('');
+            setTitle("");
+            setVideoUrl("");
         } catch (err) {
-            console.log("error uploading video: ", err)
-            setError('Failed to upload video');
+            console.log("error uploading video: ", err);
+            setError("Failed to upload video");
         }
     };
 
@@ -48,18 +52,37 @@ const Dashboard = () => {
     return (
         <div className="dashboard-container">
             <h2>Dashboard</h2>
-            <p><strong>Username:</strong> {user.firstName}</p>
-            <p><strong>Email:</strong> {user.email}</p>
+            <p>
+                <strong>Username:</strong> {user.firstName}
+            </p>
+            <p>
+                <strong>Email:</strong> {user.email}
+            </p>
 
             <h3>Your Videos</h3>
-            <ul>
-                {user.videos.map(video => (
-                    <li key={video._id}>
-                        <p><strong>Title:</strong> {video.title}</p>
-                        <p><strong>URL:</strong> <a href={video.videoUrl} target="_blank" rel="noopener noreferrer">{video.videoUrl}</a></p>
-                    </li>
-                ))}
-            </ul>
+            {user.videos.length > 0 ? (
+                <ul>
+                    {user.videos.map((video) => (
+                        <li key={video._id}>
+                            <p>
+                                <strong>Title:</strong> {video.title}
+                            </p>
+                            <p>
+                                <strong>URL:</strong>{" "}
+                                <a
+                                    href={video.videoUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {video.videoUrl}
+                                </a>
+                            </p>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p>No videos uploaded yet.</p>
+            )}
 
             <h3>Upload a New Video</h3>
             {error && <p className="error-message">{error}</p>}
