@@ -60,7 +60,7 @@ const Dashboard = () => {
             </p>
 
             <h3>Your Videos</h3>
-            {user.videos.length > 0 ? (
+            {user.videos && user.videos.length > 0 ? (
                 <ul>
                     {user.videos.map((video) => (
                         <li key={video._id}>
