@@ -13,7 +13,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/auth/dashboard`,{ withCredentials: true });
+                const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/auth/dashboard`);
                 setUser(res.data);
             } catch (err) {
                 console.error('Error fetching user data', err);
